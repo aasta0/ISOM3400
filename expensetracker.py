@@ -26,4 +26,6 @@ if submitted:
     st.session_state.expenses = pd.concat([st.session_state.expenses, new_expense], ignore_index = True)
     st.success("Expense added successfully!")
 
-
+if not st.session_state.expenses.empty:
+    st.subheader("Your Expenses")
+    st.dataframe(st.session_state.expenses)
