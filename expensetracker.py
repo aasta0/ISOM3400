@@ -34,9 +34,9 @@ if not st.session_state.expenses.empty:
     total_spent = st.session_state.expenses['Amount'].sum()
     st.write(f"Total Spent: ${total_spent:.2f}")
 
-category_totals = st.session_state.expenses.groupby('Category')['Amount'].sum()
+    category_totals = st.session_state.expenses.groupby('Category')['Amount'].sum()
 
-fig, ax = plt.subplots(figsize = (10, 6))
-ax.pie(category_totals.values, labels = category_totals.index, autopct = '%1.1f%%')
-ax.set_title("Expenses by Category")
-st.pyplot(fig)
+    fig, ax = plt.subplots(figsize = (10, 6))
+    ax.pie(category_totals.values, labels = category_totals.index, autopct = '%1.1f%%')
+    ax.set_title("Expenses by Category")
+    st.pyplot(fig)
