@@ -42,4 +42,4 @@ with st.form("expense_form"):
         st.pyplot(fig)
     
     else:
-        st.write
+        st.write("e")
