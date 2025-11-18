@@ -15,28 +15,31 @@ with st.form("expense_form"):
     amount = st.number_input("Amount", min_value = 0.0, step = 0.01)
     description = st.text_input("Description")
 
-submitted = st.form_submit_button("Add Expense")
-if submitted:
-    new_expense = pd.DataFrame({
-      'Data': [date],
-      'Category': [category],
-      'Amount': [amount],
-      'Description': [description]
-    })
-    st.session_state.expenses = pd.concat([st.session_state.expenses, new_expense], ignore_index = True)
-    st.success("Expense added successfully!")
-
-if not st.session_state.expenses.empty:
-    st.subheader("Your Expenses")
-    st.dataframe(st.session_state.expenses)
-
-    st.subheader("Summary")
-    total_spent = st.session_state.expenses['Amount'].sum()
-    st.write(f"Total Spent: ${total_spent:.2f}")
-
-    category_totals = st.session_state.expenses.groupby('Category')['Amount'].sum()
-
-    fig, ax = plt.subplots(figsize = (10, 6))
-    ax.pie(category_totals.values, labels = category_totals.index, autopct = '%1.1f%%')
-    ax.set_title("Expenses by Category")
-    st.pyplot(fig)
+    submitted = st.form_submit_button("Add Expense")
+    if submitted:
+        new_expense = pd.DataFrame({
+          'Data': [date],
+          'Category': [category],
+          'Amount': [amount],
+          'Description': [description]
+        })
+        st.session_state.expenses = pd.concat([st.session_state.expenses, new_expense], ignore_index = True)
+        st.success("Expense added successfully!")
+    
+    if not st.session_state.expenses.empty:
+        st.subheader("Your Expenses")
+        st.dataframe(st.session_state.expenses)
+    
+        st.subheader("Summary")
+        total_spent = st.session_state.expenses['Amount'].sum()
+        st.write(f"Total Spent: ${total_spent:.2f}")
+    
+        category_totals = st.session_state.expenses.groupby('Category')['Amount'].sum()
+    
+        fig, ax = plt.subplots(figsize = (10, 6))
+        ax.pie(category_totals.values, labels = category_totals.index, autopct = '%1.1f%%')
+        ax.set_title("Expenses by Category")
+        st.pyplot(fig)
+    
+    else:
+        st.write
