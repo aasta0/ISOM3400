@@ -30,7 +30,7 @@ with tab1:
         "Q3 2024": "$1.3M",
         "Q4 2024": "$1.6M"
     }
-    for quarter, revenue in sales_data.items():
+    for quarter, revenue in sales_data.items(): # quarter is keys, revenue is values.
         st.write(f"{quarter}: {revenue}")
 with tab2:
     st.write("Content for Customer Insights")
