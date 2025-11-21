@@ -7,7 +7,7 @@ st.title("Business Dashboard with Streamlit Layouts")
 # Objective
 msg = "## Objective: To demonstrate the usage of columns, tabs, and dynamic containers in a business dashboard." # a markdown
 st.write(msg)
-
+ 
 # Columns Layout
 col1, col2, col3 = st.columns(3)
 with col1:
