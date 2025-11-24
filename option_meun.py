@@ -10,7 +10,7 @@ with st.sidebar:
         options = ["Home", "About", "Contact"],
         icons = ["house",
                  "cloud-upload",
-                 "3-circle-fill"],
+                 "list-task"],
         menu_icon= "emoji-smile-fill",
         default_index=0,
     )
